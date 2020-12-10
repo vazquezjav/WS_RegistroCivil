@@ -18,8 +18,21 @@ public class Usuario_Service_Rest {
 	@GET
 	@Path("/datos")
 	@Produces("application/json")
-	public Usuario getUsuario(@QueryParam("f") String filtro) {
+	public Respuesta getUsuario(@QueryParam("f") String filtro) {
 		Usuario u = gu.obtenerUsuario(filtro);
-		return u;
+		
+		Respuesta res= new Respuesta();
+		if(u!=null) {
+			res.setCodigo(1);
+			res.setMensaje("Ok");
+			res.setUsuario(u);
+			
+		}else {
+			res.setCodigo(0);
+			res.setMensaje("No se encuentra el usuario");
+			res.setUsuario(u);
+		}
+		System.out.println(res);
+		return res;
 	}
 }
