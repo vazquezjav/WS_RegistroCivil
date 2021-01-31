@@ -35,4 +35,14 @@ public class Usuario_Service_Rest {
 		System.out.println(res);
 		return res;
 	}
+	@GET
+	@Path("/ejemplo")
+	@Produces("application/json")
+	public Respuesta ejemplo() {
+		Respuesta res= new Respuesta();
+			res.setCodigo(1);
+			res.setMensaje("Ok");
+		System.out.println(res);
+		return res;
+	}
 }
